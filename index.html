@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div style="display: flex; justify-content: center;k">
+      <div class="title-container">
+        <h1>Online compiler</h1>
+        <div class="dd-container">
+          <div>
+            <label for="themes">Choose a theme:</label>
+            <select class="dropdown" name="themes" id="themes" onchange="changeTheme(event)">
+              <option value="cobalt">Cobalt</option>
+              <option value="dracula">Dracula</option>
+              <option value="eclipse">Eclipse</option>
+              <option value="github">Github</option>
+          </select>
+          </div>
+          <div>
+            <label for="languages">Choose a language:</label>
+             <select class="dropdown" name="Language" id="languages" onchange="changeLanguage(event)">
+              <option value="c_cpp">C++</option>
+              <option value="javascript">Javascript</option>
+              <option value="python">Python</option>
+          </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-container">
+      <div id="editor">// Program to reverse a string</div>
+    </div>
+    <div class="wrapper-container">
+        <div class="wrapper">
+            <div >
+                <p>
+                    Input 
+                </p>
+                <textarea name="message" cols="50" rows="10" class="message" placeholder="Write here..."></textarea>
+                <button type="button" onclick="getOutput()" class="btn">submit</button>
+            </div>
+            <div >
+                <p>
+                    Output
+                </p>
+                <textarea name="message" cols="50" rows="10" class="message" placeholder="Write here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>
+
+    <script src="main.js"></script>
+  </body>
+</html
