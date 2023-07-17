@@ -1,6 +1,6 @@
 var editor = document.querySelector("#editor");
 var theme = "cobalt";
-var language = "javascript";
+var language = "c_cpp";
 ace.edit(editor, {
   theme: "ace/theme/cobalt",
   mode: "ace/mode/c_cpp",
@@ -19,9 +19,10 @@ function changeLanguage(event){
 }
 
 async function getOutput(){
-    const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
-    var editor = ace.edit("editor");
+  const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
+  var editor = ace.edit("editor");
   var code = editor.getValue();
+  const input = document.getElementById('input').value;
   const options = {
     method: 'POST',
     headers: {
@@ -29,22 +30,20 @@ async function getOutput(){
       'X-RapidAPI-Key': '4b334a2775msh5328c0125f36d07p1a4620jsnf98566225f64',
       'X-RapidAPI-Host': 'online-code-compiler.p.rapidapi.com'
     },
-    params: {
+    body: JSON.stringify({
       'language': `${getLanguage()}`,
       'version': 'latest',
       'code': code,
-      'input': null
-    }
+      'input': input
+    })
   };
   try {
-
-    console.log(options)
     const response = await fetch(url, options);
-    const result = await response.text();
-    console.log('here', result);
+    let result = await response.text();
+    result = JSON.parse(result);
+    document.getElementById('output').value = result.output;
   } catch (error) {
-    console.log('here');
-    console.error(error);
+    document.getElementById('output').value = error;
   }
 }
 
