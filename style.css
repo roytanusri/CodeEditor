@@ -61,6 +61,6 @@ button {
     margin: 15px 0px;
     color: white;
     outline: none;
-    background-color: blue;
+    background-color: rgb(255, 0, 85);
     border-radius: 5px;
 }
